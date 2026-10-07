@@ -48,6 +48,10 @@ final class EditorPageArgs {
   /// The callback when the editor is saved
   final void Function(EditorPageRet) onSave;
 
+  /// Optional async persistence for remote-backed text editors. A false result
+  /// keeps the editor open and its draft unsaved (for example, on a conflict).
+  final Future<bool> Function(EditorPageRet)? onSaveAsync;
+
   /// Whether to soft wrap the text
   final bool softWrap;
 
@@ -70,6 +74,7 @@ final class EditorPageArgs {
     this.lang,
     this.title,
     required this.onSave,
+    this.onSaveAsync,
     this.lightTheme,
     this.darkTheme,
     this.softWrap = _kSoftWrap,
@@ -104,6 +109,7 @@ class _EditorPageState extends State<EditorPage> {
   late final _modesMap = _parseModesMap;
 
   var _saved = false;
+  String? _savedText;
 
   @override
   void dispose() {
@@ -116,7 +122,13 @@ class _EditorPageState extends State<EditorPage> {
   @override
   void initState() {
     super.initState();
+    _controller.addListener(_updateAsyncSaveState);
     _setupCtrl();
+  }
+
+  void _updateAsyncSaveState() {
+    if (widget.args?.onSaveAsync == null || _savedText == null) return;
+    _saved = _controller.text == _savedText;
   }
 
   @override
@@ -243,8 +255,16 @@ extension on _EditorPageState {
       }
       if (!mounted) return;
       _controller.text = code;
+      if (widget.args?.onSaveAsync != null) {
+        _savedText = code;
+        _saved = true;
+      }
     } else if (text != null) {
       _controller.text = text;
+      if (widget.args?.onSaveAsync != null) {
+        _savedText = text;
+        _saved = true;
+      }
     }
   }
 
@@ -281,7 +301,23 @@ extension on _EditorPageState {
 
     // it's a text editor
     final ret = EditorPageRet(EditorPageRetType.text, _controller.text);
-    widget.args?.onSave(ret);
+    final onSaveAsync = widget.args?.onSaveAsync;
+    if (onSaveAsync == null) {
+      widget.args?.onSave(ret);
+    } else {
+      final (saved, error) = await context.showLoadingDialog<bool>(
+        fn: () => onSaveAsync(ret),
+        // The owning remote backend applies its own operation/idle timeout.
+        // An outer timeout could close this editor while a remote rename has an
+        // unknown outcome.
+        timeout: null,
+      );
+      if (error != null || saved != true) {
+        _saved = false;
+        return;
+      }
+      _savedText = _controller.text;
+    }
     _saved = true;
 
     final pop_ = widget.args?.closeAfterSave ?? _kCloseAfterSave;
