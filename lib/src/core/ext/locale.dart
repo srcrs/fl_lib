@@ -12,7 +12,26 @@ extension LocaleX on Locale {
   }
 
   /// Returns the native display name of this locale, e.g. `English (en_US)`.
-  String get nativeName => '$nativeDisplayLanguage ($code)';
+  ///
+  /// Chinese is spelled out by script rather than left as the generic `中文`:
+  /// both shipped Chinese translations otherwise read almost the same in a
+  /// language picker.
+  String get nativeName {
+    final language = switch (languageCode) {
+      'zh' when _isTraditionalChinese => '繁體中文',
+      'zh' => '简体中文',
+      _ => nativeDisplayLanguage,
+    };
+    return '$language ($code)';
+  }
+
+  bool get _isTraditionalChinese {
+    final country = countryCode?.toUpperCase();
+    return scriptCode?.toLowerCase() == 'hant' ||
+        country == 'TW' ||
+        country == 'HK' ||
+        country == 'MO';
+  }
 }
 
 /// Context-based helpers for locale and display.
