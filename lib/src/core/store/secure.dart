@@ -19,7 +19,10 @@ class _SlidingWindowRateLimiter {
   final Duration windowSize;
   final List<int> _timestamps = [];
 
-  _SlidingWindowRateLimiter({required this.maxRequests, required this.windowSize});
+  _SlidingWindowRateLimiter({
+    required this.maxRequests,
+    required this.windowSize,
+  });
 
   bool allowRequest() {
     final now = DateTime.now().millisecondsSinceEpoch;
@@ -71,6 +74,12 @@ abstract final class SecureStoreProps {
 
   /// Moves secrets written by older builds out of SharedPreferences.
   static Future<void> migrateLegacyPrefs() async {
+    // A local macOS build keeps its database key in a file and does not touch
+    // the keychain until a feature actually needs a saved secret. Migrating
+    // WebDAV and Gist credentials here would open the system keychain panel
+    // before the first frame, which is exactly the invisible launch this mode
+    // exists to avoid.
+    if (SecureStore.usesLocalMacKeyFile) return;
     try {
       // ignore: deprecated_member_use_from_same_package
       await _migrateLegacyPref(PrefProps.webdavPwd, webdavPwd);
@@ -115,13 +124,29 @@ abstract final class SecureStore {
   /// - Not [IOSOptions.groupId].
   static const defaultAccountName = 'fllib_secure_store';
 
+  /// A local, ad-hoc signed macOS build cannot use the data protection
+  /// keychain: it has no application identifier for macOS to authorise, and
+  /// every write fails with `errSecMissingEntitlement` (-34018). The legacy
+  /// login keychain does not need that entitlement. Only the local install
+  /// recipe sets this define; a signed DMG or App Store build keeps the data
+  /// protection keychain.
+  static const _useLegacyMacKeychain = bool.fromEnvironment(
+    'CODEHARBOR_LEGACY_MAC_KEYCHAIN',
+  );
+
+  /// Whether this build keeps the database key in the app's data folder.
+  ///
+  /// Set only by `scripts/macos/build-local.sh`. It keeps an ad-hoc build from
+  /// asking for the same keychain item after every re-sign.
+  static const usesLocalMacKeyFile = bool.fromEnvironment(
+    'CODEHARBOR_LOCAL_MAC_KEY_FILE',
+  );
+
   /// The secure storage instance.
   ///
   /// With [defaultAccountName], [KeychainAccessibility.first_unlock_this_device],
   static const storage = FlutterSecureStorage(
-    aOptions: AndroidOptions(
-      resetOnError: true,
-    ),
+    aOptions: AndroidOptions(resetOnError: true),
     iOptions: IOSOptions(
       accessibility: KeychainAccessibility.first_unlock_this_device,
       accountName: defaultAccountName,
@@ -133,6 +158,7 @@ abstract final class SecureStore {
       synchronizable: false,
       accessibility: KeychainAccessibility.first_unlock_this_device,
       groupId: null,
+      usesDataProtectionKeychain: !_useLegacyMacKeychain,
     ),
   );
 

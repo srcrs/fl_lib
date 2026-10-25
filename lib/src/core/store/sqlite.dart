@@ -12,6 +12,22 @@ abstract final class _StoreSecret {
   /// Where installs older than [SecureStoreProps] kept the key.
   static const _legacyPrefKey = 'hive_key';
 
+  /// Whether this build keeps the database key in the app's own data folder
+  /// instead of the platform vault.
+  ///
+  /// Only local, ad-hoc-signed macOS builds set this. Such a build has no
+  /// application identifier, so the data-protection keychain refuses every
+  /// write; the legacy login keychain works but prompts for access whenever
+  /// the ad-hoc identity changes, which is every rebuild. The key file is
+  /// created with mode 600 beside the database it unlocks, and a signed build
+  /// keeps using the vault. It is a local-install escape hatch, not a policy
+  /// for releases.
+  static const _localKeyFile = bool.fromEnvironment(
+    'CODEHARBOR_LOCAL_MAC_KEY_FILE',
+  );
+
+  static String get _localKeyPath => Paths.doc.joinPath('store.key');
+
   /// Reads the key, generating one the first time.
   ///
   /// Returns the raw bytes rather than the stored base64, because both callers
@@ -26,7 +42,7 @@ abstract final class _StoreSecret {
     final generated = Uint8List.fromList(
       List<int>.generate(32, (_) => Random.secure().nextInt(256)),
     );
-    await SecureStoreProps.hivePwd.write(base64UrlEncode(generated));
+    await _persist(base64UrlEncode(generated));
 
     // Read back rather than returning `generated`: a write that silently did
     // not land would otherwise produce a database nothing can ever open again.
@@ -37,7 +53,32 @@ abstract final class _StoreSecret {
     return base64Url.decode(confirmed);
   }
 
+  static Future<void> _persist(String value) async {
+    if (!_localKeyFile) {
+      await SecureStoreProps.hivePwd.write(value);
+      return;
+    }
+    final file = File(_localKeyPath);
+    await file.writeAsString(value, flush: true);
+    // The database itself is 0600; the key beside it has to be no wider. A
+    // `chmod` rather than a platform API because this path is macOS-only and
+    // the process is already running as the user who owns both files.
+    await Process.run('chmod', ['600', file.path]);
+  }
+
   static Future<String?> _stored() async {
+    if (_localKeyFile) {
+      final file = File(_localKeyPath);
+      if (await file.exists()) {
+        final value = (await file.readAsString()).trim();
+        if (value.isNotEmpty) return value;
+      }
+      // Deliberately no vault read in this mode. An ad-hoc build asking for a
+      // legacy item it did not create opens a system password panel and then
+      // waits there forever while the app still has no window.
+      return null;
+    }
+
     final fromVault = await SecureStoreProps.hivePwd.read();
     if (fromVault != null) return fromVault;
 
@@ -46,7 +87,7 @@ abstract final class _StoreSecret {
     final fromPrefs =
         PrefStore.shared.get<String>(_legacyPrefKey) ??
         PrefStore.shared.get<String>('flutter.$_legacyPrefKey');
-    if (fromPrefs != null) await SecureStoreProps.hivePwd.write(fromPrefs);
+    if (fromPrefs != null) await _persist(fromPrefs);
     return fromPrefs;
   }
 }
@@ -455,8 +496,7 @@ class SqliteStore extends KvStore {
 
         final shouldUpdateLastUpdateTs =
             updateLastUpdateTsOnClear ?? this.updateLastUpdateTsOnClear;
-        if (shouldUpdateLastUpdateTs &&
-            !await _updateLastUpdateTs(key: null)) {
+        if (shouldUpdateLastUpdateTs && !await _updateLastUpdateTs(key: null)) {
           return false;
         }
         for (final key in cleared) {
@@ -694,8 +734,8 @@ class _StoreListenerManager {
 
   /// Every key written in this store, for watchers that care that *something*
   /// changed rather than about one key. What `box.watch()` was.
-  Stream<String> get stream => (_all ??= StreamController<String>.broadcast())
-      .stream;
+  Stream<String> get stream =>
+      (_all ??= StreamController<String>.broadcast()).stream;
 
   void notify(String key) {
     _all?.add(key);
