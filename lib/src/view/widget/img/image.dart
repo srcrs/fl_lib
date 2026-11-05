@@ -96,7 +96,7 @@ class _ImageCardState extends State<ImageCard> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Icon(Icons.broken_image, size: 50),
+          const Icon(FlIcons.brokenImage, size: 50),
           UIs.height13,
           Text('${libL10n.error} Log'),
         ],

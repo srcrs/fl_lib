@@ -1,7 +1,6 @@
 import 'package:fl_lib/fl_lib.dart';
 import 'package:fl_lib/src/res/l10n.dart';
 import 'package:flutter/material.dart';
-import 'package:icons_plus/icons_plus.dart';
 
 /// {@template btntype}
 /// The type of the button.
@@ -49,7 +48,7 @@ const _kGap = 7.0;
 const _kPadding = EdgeInsets.all(7);
 
 /// A placeholder icon that can't be displayed.
-const _kPlaceholderIcon = Icon(MingCute.question_line);
+const _kPlaceholderIcon = Icon(FlIcons.question);
 
 const _kBorderRadius = BorderRadius.all(Radius.circular(30));
 

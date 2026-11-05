@@ -53,7 +53,7 @@ class InlineSearchField extends StatelessWidget {
         ),
         Btn.icon(
           text: libL10n.close,
-          icon: const Icon(Icons.close, size: 18),
+          icon: const Icon(FlIcons.close, size: 18),
           onTap: onClose,
         ),
         const SizedBox(width: 7),

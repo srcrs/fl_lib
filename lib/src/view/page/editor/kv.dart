@@ -57,8 +57,8 @@ class _KvEditorState extends State<KvEditor> {
       appBar: AppBar(
         title: Text(l10n.edit),
         actions: [
-          IconButton(onPressed: _onTapAdd, icon: const Icon(Icons.add)),
-          IconButton(onPressed: () => context.pop(_saveMap()), icon: const Icon(Icons.save)),
+          IconButton(onPressed: _onTapAdd, icon: const Icon(FlIcons.add)),
+          IconButton(onPressed: () => context.pop(_saveMap()), icon: const Icon(FlIcons.save)),
         ],
       ),
       body: animatedList,
@@ -87,8 +87,8 @@ class _KvEditorState extends State<KvEditor> {
       trailing: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Btn.icon(text: l10n.edit, icon: const Icon(Icons.edit), onTap: () => _onTapEdit(k, index)),
-          Btn.icon(text: l10n.delete, icon: const Icon(Icons.delete), onTap: () => _onTapDelete(k, index)),
+          Btn.icon(text: l10n.edit, icon: const Icon(FlIcons.edit), onTap: () => _onTapEdit(k, index)),
+          Btn.icon(text: l10n.delete, icon: const Icon(FlIcons.delete), onTap: () => _onTapDelete(k, index)),
         ],
       ),
     ).cardx;

@@ -39,7 +39,7 @@ final class QrShareBtn extends StatelessWidget {
     final qrWidget = QrView(key: qrKey, data: data, size: size, tip: tip, tip2: tip2, centerImg: centerImg);
 
     return Btn.icon(
-      icon: const Icon(Icons.share),
+      icon: const Icon(FlIcons.share),
       onTap: () {
         context.showRoundDialog(title: libL10n.share, child: qrWidget, actions: Btnx.oks);
       },

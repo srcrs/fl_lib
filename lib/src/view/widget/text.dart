@@ -1,4 +1,5 @@
 import 'package:fl_lib/src/core/ext/ctx/dialog.dart';
+import 'package:fl_lib/src/res/icons.dart';
 import 'package:fl_lib/src/res/l10n.dart';
 import 'package:fl_lib/src/res/ui.dart';
 import 'package:fl_lib/src/view/widget/btn/btn.dart';
@@ -65,7 +66,7 @@ final class TipText extends StatelessWidget {
                 );
               },
               child: const Icon(
-                Icons.help_outline,
+                FlIcons.helpOutline,
                 size: 17,
                 color: Colors.grey,
               ),

@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:fl_lib/fl_lib.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_code_dart_scan/qr_code_dart_scan.dart';
@@ -92,7 +91,7 @@ class _BarcodeScannerWithOverlayState extends State<BarcodeScannerPage> {
           IconButton(
             onPressed: () => unawaited(_toggleTorch()),
             icon: Icon(
-              _torch ? Icons.flashlight_on_rounded : Icons.flashlight_off_rounded,
+              _torch ? FlIcons.flashlightOn : FlIcons.flashlightOff,
             ),
           ),
         ],

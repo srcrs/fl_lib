@@ -6,7 +6,6 @@ library;
 
 import 'dart:convert';
 import 'dart:io';
-
 import 'package:fl_lib/fl_lib.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -105,12 +104,12 @@ final class _FileCardViewState extends State<FileCardView> with AutomaticKeepAli
           final sizeStr = stat != null ? stat.size.bytes2Str : '';
           final dateStr = stat != null ? stat.modified.toString().split('.').first : '';
           return ListTile(
-            leading: const Icon(Icons.insert_drive_file),
+            leading: const Icon(FlIcons.insertDriveFile),
             title: Text(widget.name ?? file.uri.pathSegments.last),
             subtitle:
                 Text([?mime, if (sizeStr.isNotEmpty) sizeStr, if (dateStr.isNotEmpty) dateStr].join(' · ')),
             trailing: IconButton(
-              icon: const Icon(Icons.open_in_new),
+              icon: const Icon(FlIcons.openInNew),
               onPressed: _onTapCard,
             ),
           );
@@ -230,7 +229,7 @@ final class _FileViewPageState extends State<FileViewPage> {
         actions: [
           if (widget.args.path != null)
             IconButton(
-              icon: const Icon(Icons.open_in_new),
+              icon: const Icon(FlIcons.openInNew),
               tooltip: libL10n.open,
               onPressed: _onOpenWithSystem,
             ),

@@ -49,8 +49,8 @@ class _JsonListEditorState extends State<JsonListEditor> {
       appBar: AppBar(
         title: Text(l10n.edit),
         actions: [
-          IconButton(onPressed: _onTapAdd, icon: const Icon(Icons.add)),
-          IconButton(onPressed: () => context.pop(_saveList()), icon: const Icon(Icons.save)),
+          IconButton(onPressed: _onTapAdd, icon: const Icon(FlIcons.add)),
+          IconButton(onPressed: () => context.pop(_saveList()), icon: const Icon(FlIcons.save)),
         ],
       ),
       body: animatedList,
@@ -79,8 +79,8 @@ class _JsonListEditorState extends State<JsonListEditor> {
       trailing: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Btn.icon(text: l10n.edit, icon: const Icon(Icons.edit), onTap: () => _onTapEdit(item, index)),
-          Btn.icon(text: l10n.delete, icon: const Icon(Icons.delete), onTap: () => _onTapDelete(index)),
+          Btn.icon(text: l10n.edit, icon: const Icon(FlIcons.edit), onTap: () => _onTapEdit(item, index)),
+          Btn.icon(text: l10n.delete, icon: const Icon(FlIcons.delete), onTap: () => _onTapDelete(index)),
         ],
       ),
     ).cardx;

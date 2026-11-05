@@ -695,7 +695,7 @@ class _ToastItemState extends State<_ToastItem> with TickerProviderStateMixin {
                 turns: _isExpanded ? 0.5 : 0,
                 duration: Durations.short3,
                 child: Icon(
-                  Icons.keyboard_arrow_down,
+                  FlIcons.keyboardArrowDown,
                   size: _iconSize,
                   color: theme.colorScheme.onSurfaceVariant,
                 ),

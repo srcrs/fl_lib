@@ -1,5 +1,4 @@
 import 'dart:math' as math;
-
 import 'package:fl_lib/fl_lib.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -44,7 +43,7 @@ typedef AdaptiveReorderCompletion<T> = void Function(List<T> items);
 ///           sizeFactor: animation,
 ///           child: Card(
 ///             child: ListTile(
-///               leading: const Icon(Icons.drag_handle),
+///               leading: const Icon(FlIcons.dragHandle),
 ///               title: Text(tag),
 ///             ),
 ///           ),
@@ -558,7 +557,7 @@ class _AdaptiveReorderableListState<T> extends State<AdaptiveReorderableList<T>>
                 ),
                 child: Center(
                   child: Icon(
-                    Icons.add,
+                    FlIcons.add,
                     size: 16,
                     color: isHovering ? colorScheme.primary : fadedOnSurface,
                   ),

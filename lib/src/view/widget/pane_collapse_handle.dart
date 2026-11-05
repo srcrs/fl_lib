@@ -122,7 +122,7 @@ class _PaneCollapseHandleState extends State<PaneCollapseHandle> {
           ),
         ),
         child: Icon(
-          widget.collapsed ? Icons.chevron_right : Icons.chevron_left,
+          widget.collapsed ? FlIcons.chevronRight : FlIcons.chevronLeft,
           size: PaneCollapseHandle._iconSize,
           color: _active
               ? scheme.onSecondaryContainer

@@ -143,7 +143,7 @@ final class _IntroPageState extends State<IntroPage> {
     final libL10n = context.libL10n;
     return (
       onPressed: hasNext ? _toNext : () => _args.onDone(context),
-      icon: hasNext ? Icons.arrow_forward : Icons.done,
+      icon: hasNext ? FlIcons.arrowForward : FlIcons.check,
       label: hasNext ? libL10n.next : libL10n.done,
     );
   }
@@ -213,7 +213,7 @@ final class _IntroPageState extends State<IntroPage> {
             if (!hasPre) return UIs.placeholder;
             return FadeIn(
               child: IconButton(
-                icon: const Icon(Icons.arrow_back),
+                icon: const Icon(FlIcons.arrowBack),
                 onPressed: _toPre,
               ),
             );

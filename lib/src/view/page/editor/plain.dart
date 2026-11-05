@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:fl_lib/fl_lib.dart';
+import 'package:flutter/material.dart';
 
 final class PlainEditPageArgs {
   final String initialText;
@@ -53,7 +53,7 @@ class _FullscreenEditWidgetState extends State<PlainEditPage> {
           title: Text(widget.args?.title ?? libL10n.edit),
           actions: [
             IconButton(
-              icon: const Icon(Icons.save),
+              icon: const Icon(FlIcons.save),
               onPressed: () {
                 context.pop(_controller.text);
               },

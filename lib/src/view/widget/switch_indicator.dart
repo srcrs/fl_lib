@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:fl_lib/fl_lib.dart';
 import 'package:flutter/material.dart';
-import 'package:icons_plus/icons_plus.dart';
 
 enum SwitchDirection { previous, next }
 
@@ -86,7 +85,7 @@ class _SwitchState extends State<SwitchIndicator> with TickerProviderStateMixin 
     final icon = _scrollDirection == null
         ? null
         : Icon(
-            _scrollDirection == SwitchDirection.previous ? MingCute.up_line : MingCute.down_line,
+            _scrollDirection == SwitchDirection.previous ? FlIcons.up : FlIcons.expandMore,
             size: _kIconSize,
           );
 

@@ -1,3 +1,4 @@
+import 'package:fl_lib/src/res/icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -78,7 +79,7 @@ class SheetChoiceTile extends StatelessWidget {
         selected: selected,
         leading: icon == null ? null : Icon(icon),
         title: Text(title),
-        trailing: selected ? Icon(Icons.check, color: scheme.primary) : null,
+        trailing: selected ? Icon(FlIcons.check, color: scheme.primary) : null,
         onTap: onTap,
       ),
     );

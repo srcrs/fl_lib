@@ -1,6 +1,5 @@
 import 'package:fl_lib/fl_lib.dart';
 import 'package:flutter/material.dart';
-import 'package:icons_plus/icons_plus.dart';
 
 /// What a session's row says under its name, or null for a one-line row.
 typedef SessionDetailOf = String? Function(int index);
@@ -33,7 +32,7 @@ final class SessionTabBar extends StatelessWidget implements PreferredSizeWidget
     required this.onClose,
     required this.sessionActions,
     required this.leadingActions,
-    this.leadingIcon = MingCute.add_circle_fill,
+    this.leadingIcon = FlIcons.addCircle,
     this.detailOf,
   });
 
@@ -239,7 +238,7 @@ final class SessionSwitcherLabel extends StatelessWidget {
                 ? Duration.zero
                 : Durations.short3,
             child: Icon(
-              Icons.expand_more,
+              FlIcons.expandMore,
               size: 18,
               color: scheme.onSurfaceVariant,
             ),
@@ -363,7 +362,7 @@ final class _SessionRow extends StatelessWidget {
               style: UIs.textGrey,
             ),
       trailing: IconButton(
-        icon: const Icon(MingCute.close_line, size: _iconSize),
+        icon: const Icon(FlIcons.close, size: _iconSize),
         color: scheme.onSurfaceVariant,
         tooltip: libL10n.close,
         onPressed: onClose,

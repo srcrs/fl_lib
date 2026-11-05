@@ -18,7 +18,7 @@ class PageIssueView extends StatelessWidget {
     required this.title,
     this.explain,
     this.detail,
-    this.icon = Icons.error_outline,
+    this.icon = FlIcons.errorOutline,
     this.onRetry,
     this.suggestion,
   });
@@ -86,7 +86,7 @@ class PageIssueView extends StatelessWidget {
               UIs.height13,
               OutlinedButton.icon(
                 onPressed: onRetry,
-                icon: const Icon(Icons.refresh),
+                icon: const Icon(FlIcons.refresh),
                 label: Text(libL10n.refresh),
               ),
             ],

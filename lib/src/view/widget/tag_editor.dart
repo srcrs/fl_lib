@@ -1,7 +1,6 @@
 import 'package:fl_lib/fl_lib.dart';
 import 'package:fl_lib/src/res/l10n.dart';
 import 'package:flutter/material.dart';
-import 'package:icons_plus/icons_plus.dart';
 
 /// What a row says beside a tag's name — how many things carry it, whether
 /// this one does, whether it is why the row survived the filter.
@@ -211,7 +210,7 @@ class _TagEditorState extends State<TagEditor> {
         controller: ctrl,
         type: TextInputType.text,
         label: l10n.tag,
-        icon: MingCute.hashtag_line,
+        icon: FlIcons.hash,
         autoFocus: true,
         onSubmitted: (_) => onSave(),
       ),
@@ -249,7 +248,7 @@ class _TagEditorState extends State<TagEditor> {
       padding: const EdgeInsets.symmetric(horizontal: 17, vertical: 13),
       child: Row(
         children: [
-          Icon(MingCute.hashtag_line, color: scheme.onSurfaceVariant),
+          Icon(FlIcons.hash, color: scheme.onSurfaceVariant),
           const SizedBox(width: 9),
           Expanded(
             child: Text(
@@ -263,7 +262,7 @@ class _TagEditorState extends State<TagEditor> {
           ],
           InkWell(
             onTap: context.popDialog,
-            child: Icon(Icons.close, size: 19, color: scheme.onSurfaceVariant),
+            child: Icon(FlIcons.close, size: 19, color: scheme.onSurfaceVariant),
           ),
         ],
       ),
@@ -409,12 +408,12 @@ class _TagEditorState extends State<TagEditor> {
                 ),
               ),
               if (selected)
-                const Icon(Icons.check, size: 17)
+                const Icon(FlIcons.check, size: 17)
               else if (widget.onRename != null)
                 InkWell(
                   onTap: () => _rename(tag),
                   child: Icon(
-                    Icons.edit,
+                    FlIcons.edit,
                     size: 17,
                     color: scheme.onSurfaceVariant,
                   ),

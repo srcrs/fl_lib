@@ -181,7 +181,7 @@ class _InputState extends State<Input> {
       // whose height came from its button rather than its content. Compact is
       // 40, still a target worth aiming at.
       visualDensity: VisualDensity.compact,
-      icon: Icon(obscureText ? Icons.visibility : Icons.visibility_off),
+      icon: Icon(obscureText ? FlIcons.visibility : FlIcons.visibilityOff),
       onPressed: () {
         _obscureText.value = !obscureText;
         widget.onViewPwdTap?.call(obscureText);

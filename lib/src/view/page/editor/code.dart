@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
-
 import 'package:computer/computer.dart';
 import 'package:fl_lib/fl_lib.dart';
 import 'package:flutter/material.dart';
@@ -159,18 +158,18 @@ class _EditorPageState extends State<EditorPage> {
         down: libL10n.editor,
       ),
       leading: IconButton(
-        icon: const Icon(Icons.arrow_back),
+        icon: const Icon(FlIcons.arrowBack),
         tooltip: libL10n.exit,
         onPressed: _onPop,
       ),
       actions: [
         IconButton(
-          icon: const Icon(Icons.search),
+          icon: const Icon(FlIcons.search),
           tooltip: libL10n.search,
           onPressed: () => _findController.findMode(),
         ),
         // PopupMenuButton<String>(
-        //   icon: const Icon(Icons.language),
+        //   icon: const Icon(FlIcons.language),
         //   tooltip: libL10n.language,
         //   onSelected: (value) {
         //     _langCode = value;
@@ -186,7 +185,7 @@ class _EditorPageState extends State<EditorPage> {
         //   },
         // ),
         IconButton(
-          icon: const Icon(Icons.save),
+          icon: const Icon(FlIcons.save),
           tooltip: libL10n.save,
           onPressed: _onSave,
         )

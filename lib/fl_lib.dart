@@ -6,6 +6,7 @@ library;
 // UI constants, themes, syntax highlighting, and other resource definitions
 
 export 'src/res/highlights.dart';
+export 'src/res/icons.dart';
 export 'src/res/misc.dart';
 export 'src/res/ui.dart';
 
@@ -139,6 +140,8 @@ export 'src/view/widget/animated_masonry.dart';
 export 'src/view/widget/context_menu.dart';
 export 'src/view/widget/dashed_border.dart';
 export 'src/view/widget/appbar.dart';
+export 'src/view/widget/appbar_lucide.dart';
+export 'src/view/widget/back_button.dart';
 export 'src/view/widget/auto_hide.dart';
 export 'src/view/widget/avg.dart';
 export 'src/view/widget/beta_tag.dart';

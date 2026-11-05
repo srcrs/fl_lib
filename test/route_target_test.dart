@@ -191,12 +191,12 @@ void main() {
     await tester.pumpWidget(harness(targetFromSibling: NavTarget.nearest));
 
     // Nothing to go back to: the pane's first route is where the pane starts
-    expect(find.byType(BackButton), findsNothing);
+    expect(find.byType(FlBackButton), findsNothing);
 
     await tester.tap(find.text('inside'));
     await tester.pumpAndSettle();
     expect(
-      find.byType(BackButton),
+      find.byType(FlBackButton),
       findsOneWidget,
       reason: 'the pane has a stack now, and back is what leaves the page',
     );

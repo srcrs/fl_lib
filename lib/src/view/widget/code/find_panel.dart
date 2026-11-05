@@ -129,17 +129,17 @@ class CodeFindPanelView extends StatelessWidget implements PreferredSizeWidget {
             children: [
               _buildIconButton(
                 onPressed: value.result == null ? null : controller.previousMatch,
-                icon: Icons.arrow_upward,
+                icon: FlIcons.arrowUpward,
                 tooltip: libL10n.previous,
               ),
               _buildIconButton(
                 onPressed: value.result == null ? null : controller.nextMatch,
-                icon: Icons.arrow_downward,
+                icon: FlIcons.arrowDownward,
                 tooltip: libL10n.next,
               ),
               _buildIconButton(
                 onPressed: controller.close,
-                icon: Icons.close,
+                icon: FlIcons.close,
                 tooltip: libL10n.close,
               )
             ],
@@ -164,12 +164,12 @@ class CodeFindPanelView extends StatelessWidget implements PreferredSizeWidget {
         ),
         _buildIconButton(
           onPressed: value.result == null ? null : controller.replaceMatch,
-          icon: Icons.done,
+          icon: FlIcons.check,
           tooltip: libL10n.replace,
         ),
         _buildIconButton(
           onPressed: value.result == null ? null : controller.replaceAllMatches,
-          icon: Icons.done_all,
+          icon: FlIcons.checkCheck,
           tooltip: libL10n.replaceAll,
         )
       ],

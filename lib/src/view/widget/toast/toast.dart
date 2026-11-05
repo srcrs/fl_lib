@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'dart:math' as math;
-
 import 'package:fl_lib/src/core/logger.dart';
 import 'package:fl_lib/src/core/utils/platform/base.dart';
+import 'package:fl_lib/src/res/icons.dart';
 import 'package:fl_lib/src/res/ui.dart';
 import 'package:fl_lib/src/view/widget/appbar.dart';
 import 'package:fl_lib/src/view/widget/val_builder.dart';
@@ -323,10 +323,10 @@ final class ToastData {
       icon ??
       switch (level) {
         ToastLevel.none => null,
-        ToastLevel.success => Icons.check_circle_outline,
-        ToastLevel.error => Icons.error_outline,
-        ToastLevel.warn => Icons.warning_amber_rounded,
-        ToastLevel.info => Icons.info_outline,
+        ToastLevel.success => FlIcons.checkCircleOutline,
+        ToastLevel.error => FlIcons.errorOutline,
+        ToastLevel.warn => FlIcons.warning,
+        ToastLevel.info => FlIcons.infoOutline,
       };
 
   /// [color] if given, and the one of [level] otherwise.

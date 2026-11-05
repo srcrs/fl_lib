@@ -180,7 +180,7 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    await tester.tap(find.byType(BackButton));
+    await tester.tap(find.byType(FlBackButton));
     expect(closed, 1);
   });
 
@@ -189,7 +189,7 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(
-      find.byType(BackButton),
+      find.byType(FlBackButton),
       findsNothing,
       reason: 'a button that cannot do anything is worse than none',
     );
@@ -213,7 +213,7 @@ void main() {
       matching: find.byType(CustomAppBar),
     );
     await tester.tap(
-      find.descendant(of: deeperBar, matching: find.byType(BackButton)),
+      find.descendant(of: deeperBar, matching: find.byType(FlBackButton)),
     );
     await tester.pumpAndSettle();
 
@@ -262,7 +262,7 @@ void main() {
     expect(tester.takeException(), isNull);
     expect(find.text('detail a'), findsOneWidget);
 
-    await tester.tap(find.byType(BackButton));
+    await tester.tap(find.byType(FlBackButton));
     expect(closed, 1, reason: 'a pane you cannot leave is a trap');
   });
 
@@ -289,7 +289,7 @@ void main() {
     expect(tester.takeException(), isNull);
     expect(find.text('detail a'), findsOneWidget);
 
-    await tester.tap(find.byType(BackButton));
+    await tester.tap(find.byType(FlBackButton));
     expect(closed, 1);
   });
 

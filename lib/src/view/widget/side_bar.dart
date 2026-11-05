@@ -1,6 +1,5 @@
 import 'package:fl_lib/fl_lib.dart';
 import 'package:flutter/material.dart';
-import 'package:icons_plus/icons_plus.dart';
 
 /// The rail beside a [SessionTabsView]: what is running, above what can be
 /// started.
@@ -366,7 +365,7 @@ final class _MenuButton extends StatelessWidget {
     final onMenu = this.onMenu;
     return Builder(
       builder: (ctx) => IconButton(
-        icon: const Icon(Icons.more_vert, size: 17),
+        icon: const Icon(FlIcons.moreVert, size: 17),
         color: Theme.of(context).colorScheme.onSurfaceVariant,
         padding: EdgeInsets.zero,
         constraints: const BoxConstraints.tightFor(width: 26, height: 26),
@@ -394,7 +393,7 @@ class _CloseButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      icon: const Icon(MingCute.close_circle_fill, size: 15),
+      icon: const Icon(FlIcons.circleX, size: 15),
       color: Theme.of(context).colorScheme.onSurfaceVariant,
       padding: EdgeInsets.zero,
       constraints: const BoxConstraints.tightFor(width: 26, height: 26),

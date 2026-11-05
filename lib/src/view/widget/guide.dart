@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:math' as math;
-
 import 'package:fl_lib/fl_lib.dart';
 import 'package:flutter/material.dart';
 
@@ -340,7 +339,7 @@ final class _GuideCard extends StatelessWidget {
                 // No label on it: every word here would need translating to
                 // say what a ✕ already says.
                 IconButton(
-                  icon: const Icon(Icons.close, size: 18),
+                  icon: const Icon(FlIcons.close, size: 18),
                   color: scheme.onSurfaceVariant,
                   tooltip: libL10n.close,
                   onPressed: onSkip,

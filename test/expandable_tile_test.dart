@@ -27,7 +27,7 @@ void main() {
           ),
         ),
       );
-      final arrows = find.byIcon(Icons.expand_more);
+      final arrows = find.byIcon(FlIcons.expandMore);
       final first = tester.getRect(arrows.first);
       final second = tester.getRect(arrows.last);
       expect(first.right, closeTo(second.right, 0.1));
@@ -64,7 +64,7 @@ void main() {
     expect(tag.width, lessThan(60));
     expect(tag.height, BetaTag.title);
     // Still against the arrow, which is what the `Expanded` is there for.
-    final arrow = tester.getRect(find.byIcon(Icons.expand_more));
+    final arrow = tester.getRect(find.byIcon(FlIcons.expandMore));
     expect(arrow.left - tag.right, lessThan(30));
   });
 }

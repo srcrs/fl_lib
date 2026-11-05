@@ -1,13 +1,11 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:typed_data';
-
 import 'package:choice/choice.dart';
 import 'package:dio/dio.dart';
 import 'package:fl_lib/fl_lib.dart';
 import 'package:fl_lib/src/res/l10n.dart';
 import 'package:flutter/material.dart';
-import 'package:icons_plus/icons_plus.dart';
 
 extension DialogX on BuildContext {
   static const _actionsPadding = EdgeInsets.only(left: 13, right: 13, bottom: 7);
@@ -176,9 +174,9 @@ extension DialogX on BuildContext {
           child: IconButton(
             key: ValueKey(asc),
             icon: Icon(switch (asc) {
-              true => Icons.arrow_upward,
-              false => Icons.arrow_downward,
-              null => Icons.sort,
+              true => FlIcons.arrowUpward,
+              false => FlIcons.arrowDownward,
+              null => FlIcons.sort,
             }),
             onPressed: () {
               final asc_ = asc ?? true;
@@ -351,13 +349,13 @@ extension DialogX on BuildContext {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Btn.tile(onTap: () => popDialog(_ImportFrom.file), text: l10n.file, icon: const Icon(MingCute.file_line)),
-          Btn.tile(onTap: () => popDialog(_ImportFrom.network), text: l10n.network, icon: const Icon(ZondIcons.network)),
-          Btn.tile(onTap: () => popDialog(_ImportFrom.clipboard), text: l10n.clipboard, icon: const Icon(MingCute.clipboard_line)),
+          Btn.tile(onTap: () => popDialog(_ImportFrom.file), text: l10n.file, icon: const Icon(FlIcons.file)),
+          Btn.tile(onTap: () => popDialog(_ImportFrom.network), text: l10n.network, icon: const Icon(FlIcons.network)),
+          Btn.tile(onTap: () => popDialog(_ImportFrom.clipboard), text: l10n.clipboard, icon: const Icon(FlIcons.clipboard)),
           if (modelDef != null)
             Btn.tile(
               text: l10n.example,
-              icon: const Icon(MingCute.paragraph_fill),
+              icon: const Icon(FlIcons.paragraph),
               onTap: () {
                 final content = const JsonEncoder.withIndent('\t\t').convert([modelDef]);
                 showRoundDialog(
@@ -397,7 +395,7 @@ $content
               mainAxisSize: MainAxisSize.min,
               children: [
                 Input(
-                  icon: ZondIcons.network,
+                  icon: FlIcons.network,
                   label: 'Url',
                   hint: 'https://a.com',
                   controller: urlCtrl,
@@ -407,7 +405,7 @@ $content
                 ),
                 UIs.height7,
                 Input(
-                  icon: HeroIcons.queue_list,
+                  icon: FlIcons.queueList,
                   label: 'Headers',
                   hint: 'key1: value1\nkey2: value2',
                   controller: headersCtrl,

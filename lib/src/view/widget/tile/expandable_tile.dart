@@ -1,3 +1,4 @@
+import 'package:fl_lib/src/res/icons.dart';
 import 'package:fl_lib/src/res/ui.dart';
 import 'package:fl_lib/src/view/widget/card.dart';
 import 'package:flutter/material.dart';
@@ -223,7 +224,7 @@ class _ExpandableTileState extends State<ExpandableTile>
               RotationTransition(
                 turns: _turns,
                 child: Icon(
-                  Icons.expand_more,
+                  FlIcons.expandMore,
                   size: 17,
                   color: scheme.onSurfaceVariant,
                 ),

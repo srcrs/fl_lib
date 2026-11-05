@@ -41,16 +41,16 @@ void main() {
 
     editorController().text = 'saved draft';
     await tester.pump();
-    await tester.tap(find.byIcon(Icons.save));
+    await tester.tap(find.byIcon(FlIcons.save));
     await tester.pumpAndSettle();
 
     allowSave = false;
     editorController().text = 'new unsaved draft';
     await tester.pump();
-    await tester.tap(find.byIcon(Icons.save));
+    await tester.tap(find.byIcon(FlIcons.save));
     await tester.pumpAndSettle();
 
-    await tester.tap(find.byIcon(Icons.arrow_back));
+    await tester.tap(find.byIcon(FlIcons.arrowBack));
     await tester.pumpAndSettle();
     expect(find.text(libL10n.exitDirectly), findsOneWidget);
   });

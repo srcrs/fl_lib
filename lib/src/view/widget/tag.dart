@@ -2,7 +2,6 @@ import 'package:choice/choice.dart';
 import 'package:fl_lib/fl_lib.dart';
 import 'package:fl_lib/src/res/l10n.dart';
 import 'package:flutter/material.dart';
-import 'package:icons_plus/icons_plus.dart';
 
 /// A wrapped switcher for multiple tags.
 ///
@@ -145,7 +144,7 @@ final class TagTile extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 13, vertical: 9),
           child: Row(
             children: [
-              Icon(MingCute.hashtag_line, color: scheme.onSurfaceVariant),
+              Icon(FlIcons.hash, color: scheme.onSurfaceVariant),
               const SizedBox(width: 13),
               Expanded(
                 child: Column(
@@ -185,7 +184,7 @@ final class TagTile extends StatelessWidget {
               ),
               const SizedBox(width: 13),
               Icon(
-                Icons.chevron_right,
+                FlIcons.chevronRight,
                 size: 17,
                 color: scheme.onSurfaceVariant,
               ),

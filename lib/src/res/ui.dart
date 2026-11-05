@@ -1,4 +1,5 @@
 import 'package:fl_lib/src/model/brightness_related.dart';
+import 'package:fl_lib/src/res/icons.dart';
 import 'package:flutter/material.dart';
 
 /// Common UI constants and helpers used across widgets/pages.
@@ -57,7 +58,7 @@ abstract final class UIs {
   static const popMenuChild = Padding(
     padding: EdgeInsets.symmetric(horizontal: 5, vertical: 3),
     child: Icon(
-      Icons.more_vert,
+      FlIcons.moreVert,
       size: 18,
     ),
   );

@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:dio/dio.dart';
 import 'package:fl_lib/fl_lib.dart';
 import 'package:fl_lib/src/res/l10n.dart';
@@ -86,7 +85,7 @@ final class ImagePage extends StatelessWidget {
               title: args.title,
             );
           },
-          icon: const Icon(Icons.share),
+          icon: const Icon(FlIcons.share),
         ),
         // Delete
         IconButton(
@@ -99,7 +98,7 @@ final class ImagePage extends StatelessWidget {
             if (sure != true || !context.mounted) return;
             context.pop(const ImagePageRet(isDeleted: true));
           },
-          icon: const Icon(Icons.delete),
+          icon: const Icon(FlIcons.delete),
         ),
       ],
     );

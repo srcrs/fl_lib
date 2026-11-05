@@ -26,12 +26,12 @@ class DebugPage extends StatelessWidget {
       appBar: CustomAppBar(
         leading: IconButton(
           onPressed: () => context.pop(),
-          icon: const Icon(Icons.arrow_back),
+          icon: const Icon(FlIcons.arrowBack),
         ),
         title: Text(args?.title ?? l10n.log, style: const TextStyle(fontSize: 17)),
         actions: [
           const Btn.icon(
-            icon: Icon(Icons.copy, size: 23),
+            icon: Icon(FlIcons.copy, size: 23),
             onTap: DebugProvider.copy,
           ),
           Btn.icon(
@@ -46,7 +46,7 @@ class DebugPage extends StatelessWidget {
                 ).toList,
               );
             },
-            icon: const Icon(Icons.delete, size: 26),
+            icon: const Icon(FlIcons.delete, size: 26),
           ),
         ],
       ),

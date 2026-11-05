@@ -41,14 +41,20 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     final closeDetail = leading == null
         ? PaneScope.closeDetailOf(context)
         : null;
+    final canPop = ModalRoute.of(context)?.canPop ?? false;
+    final effectiveLeading =
+        leading ??
+        switch ((closeDetail, canPop)) {
+          (final close?, _) => FlBackButton(onPressed: close),
+          (null, true) => const FlBackButton(),
+          _ => null,
+        };
     final bar = AppBar(
       key: key,
       title: title,
       actions: actions,
       centerTitle: centerTitle,
-      leading: closeDetail == null
-          ? leading
-          : BackButton(onPressed: closeDetail),
+      leading: effectiveLeading,
       backgroundColor: backgroundColor,
       toolbarHeight: appBarHeight,
       bottom: bottom,

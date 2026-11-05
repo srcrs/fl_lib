@@ -1,4 +1,5 @@
 import 'package:fl_lib/src/core/ext/secondary_tap.dart';
+import 'package:fl_lib/src/res/icons.dart';
 import 'package:fl_lib/src/res/ui.dart';
 import 'package:fl_lib/src/view/widget/card.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,7 @@ class CardTile extends StatelessWidget {
     this.subtitle,
     this.icon,
     this.leading,
-    this.trailing = const Icon(Icons.chevron_right),
+    this.trailing = const Icon(FlIcons.chevronRight),
     this.onTap,
     this.onLongPress,
     this.onSecondaryTap,

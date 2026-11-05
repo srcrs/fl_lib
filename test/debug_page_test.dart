@@ -26,7 +26,7 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.byType(DebugPage), findsOneWidget);
 
-    await tester.tap(find.byIcon(Icons.arrow_back));
+    await tester.tap(find.byIcon(FlIcons.arrowBack));
     await tester.pumpAndSettle();
 
     expect(find.byType(DebugPage), findsNothing);

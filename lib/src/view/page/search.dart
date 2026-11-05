@@ -21,7 +21,7 @@ final class SearchPage<T> extends SearchDelegate<T> {
   List<Widget>? buildActions(BuildContext context) {
     return [
       IconButton(
-        icon: const Icon(Icons.clear),
+        icon: const Icon(FlIcons.clear),
         onPressed: () {
           query = '';
         },
@@ -33,7 +33,7 @@ final class SearchPage<T> extends SearchDelegate<T> {
   Widget? buildLeading(BuildContext context) {
     return IconButton(
       onPressed: context.pop,
-      icon: const Icon(Icons.arrow_back),
+      icon: const Icon(FlIcons.arrowBack),
     );
   }
 

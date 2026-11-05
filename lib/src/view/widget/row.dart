@@ -1,3 +1,4 @@
+import 'package:fl_lib/src/res/icons.dart';
 import 'package:fl_lib/src/res/ui.dart';
 import 'package:flutter/material.dart';
 
@@ -35,7 +36,7 @@ final class KvRow extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                 ),
             if (onTap != null) UIs.width7,
-            if (onTap != null) const Icon(Icons.keyboard_arrow_right, size: 16),
+            if (onTap != null) const Icon(FlIcons.keyboardArrowRight, size: 16),
           ],
         ),
       ),

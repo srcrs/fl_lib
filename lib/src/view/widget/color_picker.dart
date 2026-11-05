@@ -95,7 +95,7 @@ class _ColorPickerState extends State<ColorPicker> {
           onChanged: onTextChanged,
           controller: ctrl,
           hint: '#8b2252',
-          icon: Icons.colorize,
+          icon: FlIcons.colorize,
           suggestion: false,
         ),
         _buildProgress(_ColorPropType.r, 'R', _rVN),

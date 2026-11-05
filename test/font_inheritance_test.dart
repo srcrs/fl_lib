@@ -162,7 +162,7 @@ void main() {
       of: find.text(_title), matching: find.byType(RichText),
     ));
     expect(paragraph.didExceedMaxLines, cutOff);
-    expect(find.byIcon(Icons.keyboard_arrow_down), cutOff ? findsOneWidget : findsNothing);
+    expect(find.byIcon(FlIcons.keyboardArrowDown), cutOff ? findsOneWidget : findsNothing);
   }
 
   testWidgets('toast measures the typography it renders', (tester) async {
