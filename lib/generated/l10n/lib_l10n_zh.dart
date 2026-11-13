@@ -159,10 +159,6 @@ class LibLocalizationsZh extends LibLocalizations {
   String get custom => '自定义';
 
   @override
-  String get customCmdDocUrl =>
-      'https://github.com/lollipopkit/flutter_server_box/wiki/主页#自定义命令';
-
-  @override
   String get cut => '剪切';
 
   @override
@@ -1003,10 +999,6 @@ class LibLocalizationsZhTw extends LibLocalizationsZh {
 
   @override
   String get custom => '自訂';
-
-  @override
-  String get customCmdDocUrl =>
-      'https://github.com/lollipopkit/flutter_server_box/wiki/主页#自定义命令';
 
   @override
   String get cut => '剪下';

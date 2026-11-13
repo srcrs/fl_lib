@@ -160,10 +160,6 @@ class LibLocalizationsUk extends LibLocalizations {
   String get custom => 'Користувацьке';
 
   @override
-  String get customCmdDocUrl =>
-      'https://github.com/lollipopkit/flutter_server_box/wiki#custom-commands';
-
-  @override
   String get cut => 'Вирізати';
 
   @override

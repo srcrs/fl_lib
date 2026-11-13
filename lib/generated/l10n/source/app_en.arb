@@ -210,10 +210,6 @@
   "@custom": {
     "description": "Label for custom."
   },
-  "customCmdDocUrl": "https://github.com/lollipopkit/flutter_server_box/wiki#custom-commands",
-  "@customCmdDocUrl": {
-    "description": "URL for custom cmd doc url."
-  },
   "cut": "Cut",
   "@cut": {
     "description": "Label for cut."

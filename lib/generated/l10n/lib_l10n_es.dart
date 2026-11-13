@@ -160,10 +160,6 @@ class LibLocalizationsEs extends LibLocalizations {
   String get custom => 'Personalizado';
 
   @override
-  String get customCmdDocUrl =>
-      'https://github.com/lollipopkit/flutter_server_box/wiki#custom-commands';
-
-  @override
   String get cut => 'Cortar';
 
   @override

@@ -159,10 +159,6 @@ class LibLocalizationsKo extends LibLocalizations {
   String get custom => '사용자 정의';
 
   @override
-  String get customCmdDocUrl =>
-      'https://github.com/lollipopkit/flutter_server_box/wiki#custom-commands';
-
-  @override
   String get cut => '잘라내기';
 
   @override

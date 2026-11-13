@@ -413,12 +413,6 @@ abstract class LibLocalizations {
   /// **'Custom'**
   String get custom;
 
-  /// URL for custom cmd doc url.
-  ///
-  /// In en, this message translates to:
-  /// **'https://github.com/lollipopkit/flutter_server_box/wiki#custom-commands'**
-  String get customCmdDocUrl;
-
   /// Label for cut.
   ///
   /// In en, this message translates to:
