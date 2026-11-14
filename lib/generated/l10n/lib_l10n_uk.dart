@@ -408,9 +408,6 @@ class LibLocalizationsUk extends LibLocalizations {
   String get menuSettings => 'Налаштування';
 
   @override
-  String get menuWiki => 'Wiki';
-
-  @override
   String get migrateCfg => 'Міграція конфігурації';
 
   @override

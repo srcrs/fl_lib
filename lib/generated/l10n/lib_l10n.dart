@@ -905,12 +905,6 @@ abstract class LibLocalizations {
   /// **'Setting'**
   String get menuSettings;
 
-  /// Label for menu wiki.
-  ///
-  /// In en, this message translates to:
-  /// **'Wiki'**
-  String get menuWiki;
-
   /// Label for migrate cfg.
   ///
   /// In en, this message translates to:

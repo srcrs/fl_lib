@@ -408,9 +408,6 @@ class LibLocalizationsEn extends LibLocalizations {
   String get menuSettings => 'Setting';
 
   @override
-  String get menuWiki => 'Wiki';
-
-  @override
   String get migrateCfg => 'Configuration migration';
 
   @override

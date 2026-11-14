@@ -407,9 +407,6 @@ class LibLocalizationsKo extends LibLocalizations {
   String get menuSettings => '설정';
 
   @override
-  String get menuWiki => '위키';
-
-  @override
   String get migrateCfg => '구성 마이그레이션';
 
   @override

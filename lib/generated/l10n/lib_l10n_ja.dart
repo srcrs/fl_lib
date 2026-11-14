@@ -407,9 +407,6 @@ class LibLocalizationsJa extends LibLocalizations {
   String get menuSettings => '設定';
 
   @override
-  String get menuWiki => 'Wiki';
-
-  @override
   String get migrateCfg => '設定の移行';
 
   @override

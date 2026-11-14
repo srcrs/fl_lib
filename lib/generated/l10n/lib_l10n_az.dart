@@ -408,9 +408,6 @@ class LibLocalizationsAz extends LibLocalizations {
   String get menuSettings => 'Parametrlər';
 
   @override
-  String get menuWiki => 'Wiki';
-
-  @override
   String get migrateCfg => 'Konfiqurasiya miqrasiyası';
 
   @override

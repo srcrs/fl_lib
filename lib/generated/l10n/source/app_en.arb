@@ -546,10 +546,6 @@
   "@menuSettings": {
     "description": "Label for menu settings."
   },
-  "menuWiki": "Wiki",
-  "@menuWiki": {
-    "description": "Label for menu wiki."
-  },
   "migrateCfg": "Configuration migration",
   "@migrateCfg": {
     "description": "Label for migrate cfg."

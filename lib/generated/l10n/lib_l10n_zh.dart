@@ -407,9 +407,6 @@ class LibLocalizationsZh extends LibLocalizations {
   String get menuSettings => '设置';
 
   @override
-  String get menuWiki => 'Wiki';
-
-  @override
   String get migrateCfg => '配置迁移';
 
   @override
@@ -1247,9 +1244,6 @@ class LibLocalizationsZhTw extends LibLocalizationsZh {
 
   @override
   String get menuSettings => '設定';
-
-  @override
-  String get menuWiki => 'Wiki';
 
   @override
   String get migrateCfg => '配置遷移';

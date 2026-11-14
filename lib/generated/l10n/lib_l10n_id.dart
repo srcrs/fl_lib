@@ -408,9 +408,6 @@ class LibLocalizationsId extends LibLocalizations {
   String get menuSettings => 'Pengaturan';
 
   @override
-  String get menuWiki => 'Wiki';
-
-  @override
   String get migrateCfg => 'Migrasi konfigurasi';
 
   @override

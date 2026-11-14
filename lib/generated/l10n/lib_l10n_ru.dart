@@ -408,9 +408,6 @@ class LibLocalizationsRu extends LibLocalizations {
   String get menuSettings => 'Настройки';
 
   @override
-  String get menuWiki => 'Wiki';
-
-  @override
   String get migrateCfg => 'Миграция конфигурации';
 
   @override
